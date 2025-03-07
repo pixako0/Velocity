@@ -1,16 +1,18 @@
 #pragma once
 
 #include "Player.h"
+#include "Planet.h"
 
 namespace Tmpl8 {
 
 class Surface;
 class Player;
+class Planet;
 class Game
 {
 public:
-    void SetTarget(Surface* surface) { screen = surface; player = new Player(); }
-	void Init() {};
+	void SetTarget(Surface* surface) { screen = surface; player = new Player(); planet = new Planet(); }
+	void Init();
 	void Shutdown() {};
 	void Tick( float deltaTime );
 	void MouseUp( int button ) { /* implement if you want to detect mouse button presses */ }
@@ -22,6 +24,7 @@ public:
 private:
 	Surface* screen;
 	Player* player;
+	Planet* planet;
 };
 
 }; // namespace Tmpl8

@@ -54,7 +54,7 @@ namespace Tmpl8 {
 
 	void Player::handleKeyDown(int key)
 	{
-		printf("%d\n", key);
+		//printf("%d\n", key);
 		switch (key)
 		{
 		case 7:
@@ -82,6 +82,39 @@ namespace Tmpl8 {
 		case 80:
 			this->moveLeft = true;
 			break;
+		}
+	}
+
+	void Player::applyGravity(int gravityRange, int gravityX, int gravityY)
+	{
+		int xDistance = this->x - gravityX;
+		int xDistanceC = xDistance;
+		if (xDistance < 0) {
+			xDistanceC = -xDistance;
+		}
+
+		int yDistance = this->y - gravityY;
+		int yDistanceC = yDistance;
+		if (yDistance < 0) {
+			yDistanceC = -yDistanceC;
+		}
+
+		int totalDistance = (yDistanceC + xDistanceC) / 2;
+		printf("Distance: %d\n", totalDistance);
+		if (totalDistance <= gravityRange) {
+			if (xDistance < 0) {
+				this->x += 0.5;
+			}
+			else if (xDistance > 0) {
+				this->x -= 0.5;
+			}
+
+			if (yDistance < 0) {
+				this->y += 0.5;
+			}
+			else if (yDistance > 0) {
+				this->y -= 0.5;
+			}
 		}
 	}
 }

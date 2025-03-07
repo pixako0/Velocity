@@ -105,7 +105,9 @@ public:
 	void SetFrame( unsigned int a_Index ) { m_CurrentFrame = a_Index; }
 	unsigned int GetFlags() const { return m_Flags; }
 	int GetWidth() { return m_Width; }
+	int GetWidthOffset() { return m_Width / 2; }
 	int GetHeight() { return m_Height; }
+	int GetHeightOffset() { return m_Height / 2; }
 	Pixel* GetBuffer() { return m_Surface->GetBuffer(); }	
 	unsigned int Frames() { return m_NumFrames; }
 	Surface* GetSurface() { return m_Surface; }
