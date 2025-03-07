@@ -47,7 +47,9 @@ public:
 	Pixel* GetBuffer() { return m_Buffer; }
 	void SetBuffer( Pixel* a_Buffer ) { m_Buffer = a_Buffer; }
 	int GetWidth() { return m_Width; }
+	int GetWidthOffset() { return m_Width / 2; }
 	int GetHeight() { return m_Height; }
+	int GetHeightOffset() { return m_Height / 2; }
 	int GetPitch() { return m_Pitch; }
 	void SetPitch( int a_Pitch ) { m_Pitch = a_Pitch; }
 	// Special operations

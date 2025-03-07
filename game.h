@@ -2,6 +2,7 @@
 
 #include "Player.h"
 #include "Planet.h"
+#include "Ship.h"
 
 namespace Tmpl8 {
 
@@ -11,7 +12,7 @@ class Planet;
 class Game
 {
 public:
-	void SetTarget(Surface* surface) { screen = surface; player = new Player(); planet = new Planet(); }
+	void SetTarget(Surface* surface) { screen = surface; player = new Player(); planet = new Planet(); ship = new Ship(); }
 	void Init();
 	void Shutdown() {};
 	void Tick( float deltaTime );
@@ -25,6 +26,7 @@ private:
 	Surface* screen;
 	Player* player;
 	Planet* planet;
+	Ship* ship;
 };
 
 }; // namespace Tmpl8
