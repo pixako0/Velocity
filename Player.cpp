@@ -6,17 +6,20 @@ namespace Tmpl8 {
 	void Player::move()
 	{
 		if (moveRight) {
-			this->x += this->speed;
+			this->velocityX += this->acceleration;
 		}
 		if (moveLeft) {
-			this->x -= this->speed;
+			this->velocityX -= this->acceleration;
 		}
 		if (moveUp) {
-			this->y -= this->speed;
+			this->velocityY -= this->acceleration;
 		}
 		if (moveDown) {
-			this->y += this->speed;
+			this->velocityY += this->acceleration;
 		}
+
+		this->x += this->velocityX/10;
+		this->y += this->velocityY/10;
 		//printf("R:%d | L:%d | U:%d | D:%d\n", moveRight, moveLeft, moveUp, moveDown);
 	}
 
@@ -100,20 +103,19 @@ namespace Tmpl8 {
 		}
 
 		int totalDistance = (yDistanceC + xDistanceC) / 2;
-		printf("Distance: %d\n", totalDistance);
 		if (totalDistance <= gravityRange) {
 			if (xDistance < 0) {
-				this->x += 0.5;
+				this->velocityX += 0.5;
 			}
 			else if (xDistance > 0) {
-				this->x -= 0.5;
+				this->velocityX -= 0.5;
 			}
 
 			if (yDistance < 0) {
-				this->y += 0.5;
+				this->velocityY += 0.5;
 			}
 			else if (yDistance > 0) {
-				this->y -= 0.5;
+				this->velocityY -= 0.5;
 			}
 		}
 	}
