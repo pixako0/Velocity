@@ -7,8 +7,8 @@ namespace Tmpl8 {
 		int x = 0;
 		int y = 0;
 
-		int gravityRange = 150;
-		int planetsize = 40;
+		int gravityRange = 200;
+		int planetsize = 65;
 
 		int frame = 100;
 		int frameCount = 0;

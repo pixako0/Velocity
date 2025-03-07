@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <cstdio>
+#include <cmath>
 
 namespace Tmpl8 {
 
@@ -92,25 +93,30 @@ namespace Tmpl8 {
 	void Player::applyGravity(int planetSize, int gravityRange, int gravityX, int gravityY)
 	{
 		int xDistance = this->x - gravityX;
-		int xDistanceC = xDistance;
-		if (xDistance < 0) {
-			xDistanceC = -xDistance;
-		}
-
 		int yDistance = this->y - gravityY;
-		int yDistanceC = yDistance;
-		if (yDistance < 0) {
-			yDistanceC = -yDistanceC;
+
+		int distanceSquared = xDistance * xDistance + yDistance * yDistance;
+		int planetSizeSquared = planetSize * planetSize;
+		int gravityRangeSquared = gravityRange * gravityRange;
+
+		// collision with planet
+		if (distanceSquared < planetSizeSquared) {
+			float distance = std::sqrt(distanceSquared);
+			float normX = xDistance / distance;
+			float normY = yDistance / distance;
+
+			this->velocityX = normX;
+			this->velocityY = normY;
 		}
 
-		int totalDistance = (yDistanceC + xDistanceC) / 2;
-		if (totalDistance < planetSize) {
-			this->velocityX = (xDistance < 0) ? -1 : 1;
-			this->velocityY = (yDistance < 0) ? -1 : 1;
-		} 
-		else if (totalDistance <= gravityRange) {
-			this->velocityX += (xDistance < 0) ? 0.5 : -0.5;
-			this->velocityY += (yDistance < 0) ? 0.5 : -0.5;
+		// within gravity range
+		else if (distanceSquared <= gravityRangeSquared) {
+			float distance = std::sqrt(distanceSquared);
+			float normX = xDistance / distance;
+			float normY = yDistance / distance;
+
+			this->velocityX += -0.5f * normX;
+			this->velocityY += -0.5f * normY;
 		}
 	}
 }
