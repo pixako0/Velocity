@@ -4,12 +4,12 @@ namespace Tmpl8 {
 	class Player
 	{
 	public:
-		float x = 0;
-		float y = 0;
+		float x = 100;
+		float y = 100;
 		int acceleration = 2;
 
-		float velocityX = 0;
-		float velocityY = 0;
+		float velocityX = 20;
+		float velocityY = -20;
 
 		bool moveRight = false;
 		bool moveLeft = false;
@@ -17,7 +17,7 @@ namespace Tmpl8 {
 		bool moveDown = false;
 
 		void move();
-		void applyGravity(int gravityRange, int gravityX, int gravityY);
+		void applyGravity(int planetSize, int gravityRange, int gravityX, int gravityY);
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
 	};

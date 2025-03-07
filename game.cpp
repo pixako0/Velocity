@@ -27,7 +27,7 @@ namespace Tmpl8
 		screen->Clear(0);
 
 		// player
-		player->applyGravity(planet->gravityRange, planet->x, planet->y);
+		player->applyGravity(planet->planetsize, planet->gravityRange, planet->x, planet->y);
 		player->move();
 		ship.Draw(screen, xOffset - ship.GetWidthOffset(), yOffset - ship.GetHeightOffset());
 

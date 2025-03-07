@@ -5,6 +5,9 @@ namespace Tmpl8 {
 
 	void Player::move()
 	{
+		this->x += this->velocityX / 10;
+		this->y += this->velocityY / 10;
+
 		if (moveRight) {
 			this->velocityX += this->acceleration;
 		}
@@ -18,8 +21,6 @@ namespace Tmpl8 {
 			this->velocityY += this->acceleration;
 		}
 
-		this->x += this->velocityX/10;
-		this->y += this->velocityY/10;
 		//printf("R:%d | L:%d | U:%d | D:%d\n", moveRight, moveLeft, moveUp, moveDown);
 	}
 
@@ -88,7 +89,7 @@ namespace Tmpl8 {
 		}
 	}
 
-	void Player::applyGravity(int gravityRange, int gravityX, int gravityY)
+	void Player::applyGravity(int planetSize, int gravityRange, int gravityX, int gravityY)
 	{
 		int xDistance = this->x - gravityX;
 		int xDistanceC = xDistance;
@@ -103,7 +104,22 @@ namespace Tmpl8 {
 		}
 
 		int totalDistance = (yDistanceC + xDistanceC) / 2;
-		if (totalDistance <= gravityRange) {
+		if (totalDistance < planetSize) {
+			if (xDistance < 0) {
+				this->velocityX = -1;
+			}
+			else {
+				this->velocityX = 1;
+			}
+
+			if (yDistance < 0) {
+				this->velocityY = -1;
+			}
+			else {
+				this->velocityY = 1;
+			}
+		} 
+		else if (totalDistance <= gravityRange) {
 			if (xDistance < 0) {
 				this->velocityX += 0.5;
 			}
