@@ -105,34 +105,12 @@ namespace Tmpl8 {
 
 		int totalDistance = (yDistanceC + xDistanceC) / 2;
 		if (totalDistance < planetSize) {
-			if (xDistance < 0) {
-				this->velocityX = -1;
-			}
-			else {
-				this->velocityX = 1;
-			}
-
-			if (yDistance < 0) {
-				this->velocityY = -1;
-			}
-			else {
-				this->velocityY = 1;
-			}
+			this->velocityX = (xDistance < 0) ? -1 : 1;
+			this->velocityY = (yDistance < 0) ? -1 : 1;
 		} 
 		else if (totalDistance <= gravityRange) {
-			if (xDistance < 0) {
-				this->velocityX += 0.5;
-			}
-			else if (xDistance > 0) {
-				this->velocityX -= 0.5;
-			}
-
-			if (yDistance < 0) {
-				this->velocityY += 0.5;
-			}
-			else if (yDistance > 0) {
-				this->velocityY -= 0.5;
-			}
+			this->velocityX += (xDistance < 0) ? 0.5 : -0.5;
+			this->velocityY += (yDistance < 0) ? 0.5 : -0.5;
 		}
 	}
 }

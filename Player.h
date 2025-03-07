@@ -8,8 +8,8 @@ namespace Tmpl8 {
 		float y = 100;
 		int acceleration = 2;
 
-		float velocityX = 20;
-		float velocityY = -20;
+		float velocityX = 21;
+		float velocityY = -21;
 
 		bool moveRight = false;
 		bool moveLeft = false;
