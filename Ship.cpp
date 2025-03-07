@@ -15,22 +15,31 @@ namespace Tmpl8
 
 		if (player->moveRight || player->moveLeft || player->moveUp || player->moveDown)
 		{
+			shipEnginePowered.SetFrame(this->poweredFrameCount);
 			shipEnginePowered.Draw(screen, xPos, yPos);
+			this->poweredFrameDelayCount++;
+			if (this->poweredFrameDelayCount >= this->poweredFrameDelay) {
+				this->poweredFrameCount++;
+				this->poweredFrameDelayCount = 0;
+				if (this->poweredFrameCount >= this->poweredFrame) {
+					this->poweredFrameCount = 0;
+				}
+			}
 		}
 		else {
 			shipEngineIdle.SetFrame(this->idleFrameCount);
 			shipEngineIdle.Draw(screen, xPos, yPos);
+			this->idleFrameDelayCount++;
+			if (this->idleFrameDelayCount >= this->idleFrameDelay) {
+				this->idleFrameCount++;
+				this->idleFrameDelayCount = 0;
+				if (this->idleFrameCount >= this->idleFrame) {
+					this->idleFrameCount = 0;
+				}
+			}
 		}
 
 		shipEngine.Draw(screen, xPos, yPos);
 		shipBase.Draw(screen, xPos, yPos);
-
-		this->idleFrameDelayCount++;
-		if (this->idleFrameDelayCount >= this->idleFrameDelay) {
-			this->idleFrameCount++;
-			if (this->idleFrameCount >= this->idleFrame) {
-				this->idleFrameCount = 0;
-			}
-		}
 	}
 }

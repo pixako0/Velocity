@@ -11,8 +11,14 @@ namespace Tmpl8 {
 		// idle animation
 		int idleFrameCount = 0;
 		int idleFrame = 3;
-		int idleFrameDelay = 10;
+		int idleFrameDelay = 5;
 		int idleFrameDelayCount = 0;
+
+		// powerred animation
+		int poweredFrameCount = 0;
+		int poweredFrame = 4;
+		int poweredFrameDelay = 5;
+		int poweredFrameDelayCount = 0;
 	};
 }
 
