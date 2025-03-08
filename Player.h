@@ -7,7 +7,7 @@ namespace Tmpl8 {
 	class Player
 	{
 	public:
-		float x = 100;
+		float x = 1000;
 		float y = 100;
 		float acceleration = 0.6;
 

@@ -7,6 +7,7 @@ namespace Tmpl8
 	void Planet::initialize()
 	{
 		planetSprite = new Sprite(new Surface((char*)this->asset), this->frame);
+		this->gravityRange = this->planetSize * 3;
 	}
 
 	void Planet::update(Surface* screen, Player* player)
