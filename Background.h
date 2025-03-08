@@ -9,5 +9,7 @@ namespace Tmpl8
 	public:
 		int slowness = 2;
 		void update(Surface* screen, Player* player);
+	private:
+		void border(Player* player);
 	};
 }

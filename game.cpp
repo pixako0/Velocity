@@ -11,11 +11,11 @@ namespace Tmpl8
     void Game::Init()
     {
         earth = Planet();
+        earth.initialize();
+
         moon = Planet();
         moon.x = 420;
         moon.y = -50;
-
-        earth.initialize();
         moon.initialize();
 
         background = Background();

@@ -11,6 +11,8 @@ namespace Tmpl8 {
 		float y = 100;
 		float acceleration = 0.6;
 
+		int maxVelocity = 100;
+
 		float velocityX = 21;
 		float velocityY = -21;
 

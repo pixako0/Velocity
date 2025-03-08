@@ -8,6 +8,8 @@ namespace Tmpl8
 
 	void Background::update(Surface* screen, Player* player)
 	{
+		this->border(player);
+
 		int x = 0;
 		int y = 0;
 
@@ -21,6 +23,17 @@ namespace Tmpl8
 				y *= background.GetHeight();
 				background.Draw(screen, x + i - player->x / this->slowness - screen->GetWidthOffset(), y + j - player->y / this->slowness - screen->GetHeightOffset());
 			}
+		}
+	}
+
+	void Background::border(Player* player)
+	{
+		if (player->x >= 100000 || player->x <= -100000 || player->y >= 100000 || player->y <= -100000)
+		{
+			player->velocityY = 0;
+			player->velocityX = 0;
+			player->x = 100;
+			player->y = 100;
 		}
 	}
 }

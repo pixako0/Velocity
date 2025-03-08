@@ -7,6 +7,24 @@ namespace Tmpl8 {
 
 	void Player::move()
 	{
+		// speed limiter
+		if (this->velocityX > this->maxVelocity)
+		{
+			this->velocityX = this->maxVelocity;
+		}
+		else if (this->velocityX < -this->maxVelocity) {
+			this->velocityX = -this->maxVelocity;
+		}
+
+		if (this->velocityY > this->maxVelocity)
+		{
+			this->velocityY = this->maxVelocity;
+		}
+		else if (this->velocityY < -this->maxVelocity) {
+			this->velocityY = -this->maxVelocity;
+		}
+
+		// acceleration
 		this->x += this->velocityX / 10;
 		this->y += this->velocityY / 10;
 
