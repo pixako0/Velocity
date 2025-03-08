@@ -2,6 +2,7 @@
 
 #include "Player.h"
 #include "Planet.h"
+#include "Background.h"
 #include "Ship.h"
 
 namespace Tmpl8 {

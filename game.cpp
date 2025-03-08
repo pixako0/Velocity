@@ -6,6 +6,7 @@ namespace Tmpl8
 {
     Planet earth;
     Planet moon;
+    Background background;
 
     void Game::Init()
     {
@@ -16,11 +17,16 @@ namespace Tmpl8
 
         earth.initialize();
         moon.initialize();
+
+        background = Background();
     }
 
     void Game::Tick(float deltaTime)
     {
         screen->Clear(0);
+
+        // background
+        background.update(screen, player);
 
         // player
         player->applyGravity(&earth);

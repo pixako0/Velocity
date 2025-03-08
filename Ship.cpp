@@ -5,8 +5,8 @@ namespace Tmpl8
 {
 	static Sprite shipBase(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png"), 1);
 	static Sprite shipEngine(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/PNGs/Main Ship - Engines - Base Engine.png"), 1);
-	static Sprite shipEngineIdle(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Base Engine - Idle.png"), 3);
-	static Sprite shipEnginePowered(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Base Engine - Powering.png"), 4);
+	static Sprite shipEngineIdle(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Supercharged Engine - Idle.png"), 4);
+	static Sprite shipEnginePowered(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Supercharged Engine - Powering.png"), 4);
 
 	void Ship::update(Surface* screen, Player* player)
 	{
