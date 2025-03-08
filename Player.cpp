@@ -97,7 +97,7 @@ namespace Tmpl8 {
 		int yDistance = this->y - planet->y;
 
 		int distanceSquared = xDistance * xDistance + yDistance * yDistance;
-		int planetSizeSquared = planet->planetsize * planet->planetsize;
+		int planetSizeSquared = planet->planetSize * planet->planetSize;
 		int gravityRangeSquared = planet->gravityRange * planet->gravityRange;
 
 		// collision with planet
