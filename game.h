@@ -12,7 +12,11 @@ class Planet;
 class Game
 {
 public:
-	void SetTarget(Surface* surface) { screen = surface; player = new Player(); planet = new Planet(); ship = new Ship(); }
+	void SetTarget(Surface* surface) { 
+		screen = surface; 
+		player = new Player();
+		ship = new Ship(); 
+	}
 	void Init();
 	void Shutdown() {};
 	void Tick( float deltaTime );
@@ -25,7 +29,6 @@ public:
 private:
 	Surface* screen;
 	Player* player;
-	Planet* planet;
 	Ship* ship;
 };
 

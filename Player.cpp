@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <cstdio>
 #include <cmath>
+#include "Planet.h"
 
 namespace Tmpl8 {
 
@@ -90,14 +91,14 @@ namespace Tmpl8 {
 		}
 	}
 
-	void Player::applyGravity(int planetSize, int gravityRange, int gravityX, int gravityY)
+	void Player::applyGravity(Planet* planet)
 	{
-		int xDistance = this->x - gravityX;
-		int yDistance = this->y - gravityY;
+		int xDistance = this->x - planet->x;
+		int yDistance = this->y - planet->y;
 
 		int distanceSquared = xDistance * xDistance + yDistance * yDistance;
-		int planetSizeSquared = planetSize * planetSize;
-		int gravityRangeSquared = gravityRange * gravityRange;
+		int planetSizeSquared = planet->planetsize * planet->planetsize;
+		int gravityRangeSquared = planet->gravityRange * planet->gravityRange;
 
 		// collision with planet
 		if (distanceSquared < planetSizeSquared) {

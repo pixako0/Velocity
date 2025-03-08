@@ -1,7 +1,21 @@
 #include "Planet.h"
+#include "surface.h"
+#include "Player.h"
 
 namespace Tmpl8
 {
+	void Planet::initialize()
+	{
+		planetSprite = new Sprite(new Surface((char*)this->asset), this->frame);
+	}
+
+	void Planet::update(Surface* screen, Player* player)
+	{
+		planetSprite->SetFrame(this->frameCount);
+		planetSprite->Draw(screen, this->x - player->x + screen->GetWidthOffset() - planetSprite->GetWidthOffset(), this->y - player->y + screen->GetHeightOffset() - planetSprite->GetHeightOffset());
+		this->nextFrame();
+	}
+
 	void Planet::nextFrame()
 	{
 		this->frameDelayCount++;

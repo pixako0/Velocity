@@ -3,6 +3,7 @@
 #include "Ship.h"
 
 namespace Tmpl8 {
+	class Planet;
 	class Player
 	{
 	public:
@@ -19,7 +20,7 @@ namespace Tmpl8 {
 		bool moveDown = false;
 
 		void move();
-		void applyGravity(int planetSize, int gravityRange, int gravityX, int gravityY);
+		void applyGravity(Planet* planet);
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
 	};

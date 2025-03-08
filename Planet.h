@@ -1,6 +1,7 @@
-#pragma once
-
 namespace Tmpl8 {
+	class Player;
+	class Sprite;
+	class Surface;
 	class Planet
 	{
 	public:
@@ -15,7 +16,13 @@ namespace Tmpl8 {
 		int frameDelay = 4;
 		int frameDelayCount = 0;
 
+		const char* asset = "assets/planets/planet.png";
+
+		void initialize();
+		void update(Surface* screen, Player* player);
+
+	private:
+		Sprite* planetSprite = nullptr;
 		void nextFrame();
 	};
 }
-
