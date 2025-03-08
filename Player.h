@@ -9,7 +9,7 @@ namespace Tmpl8 {
 	public:
 		float x = 100;
 		float y = 100;
-		int acceleration = 2;
+		float acceleration = 0.6;
 
 		float velocityX = 21;
 		float velocityY = -21;

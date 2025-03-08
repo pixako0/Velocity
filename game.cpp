@@ -11,7 +11,7 @@ namespace Tmpl8
     {
         earth = Planet();
         moon = Planet();
-        moon.x = 220;
+        moon.x = 420;
         moon.y = -50;
 
         earth.initialize();
@@ -24,7 +24,7 @@ namespace Tmpl8
 
         // player
         player->applyGravity(&earth);
-		//player->applyGravity(&moon);
+		player->applyGravity(&moon);
         player->move();
 
         // ship
