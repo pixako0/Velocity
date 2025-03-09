@@ -1,6 +1,7 @@
 #include "Planet.h"
 #include "surface.h"
 #include "Player.h"
+#include <cstdio>
 
 namespace Tmpl8
 {
@@ -8,6 +9,10 @@ namespace Tmpl8
 	{
 		planetSprite = new Sprite(new Surface((char*)this->asset), this->frame);
 		this->gravityRange = this->planetSize * 3;
+		this->gravityStrength = -0.3 * (this->planetSize / 100);
+		if (this->gravityStrength > -0.3) {
+			this->gravityStrength = -0.3;
+		}
 	}
 
 	void Planet::update(Surface* screen, Player* player)

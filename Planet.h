@@ -12,6 +12,7 @@ namespace Tmpl8 {
 		int y = 0;
 
 		int gravityRange = 0;
+		float gravityStrength = 0;
 		int planetSize = 0;
 
 		int frame = 1;

@@ -143,8 +143,8 @@ namespace Tmpl8 {
 			float normX = xDistance / distance;
 			float normY = yDistance / distance;
 
-			this->velocityX += -0.5f * normX;
-			this->velocityY += -0.5f * normY;
+			this->velocityX += planet->gravityStrength * normX;
+			this->velocityY += planet->gravityStrength * normY;
 		}
 	}
 
