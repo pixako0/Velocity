@@ -7,14 +7,14 @@ namespace Tmpl8 {
 	class Player
 	{
 	public:
-		float x = 1000;
+		float x = 2000;
 		float y = 100;
 		float acceleration = 0.6;
 
 		int maxVelocity = 100;
 
-		float velocityX = 21;
-		float velocityY = -21;
+		float velocityX = 0;
+		float velocityY = 0;
 
 		bool moveRight = false;
 		bool moveLeft = false;

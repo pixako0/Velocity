@@ -32,7 +32,7 @@ namespace Tmpl8
 		{
 			player->velocityY = 0;
 			player->velocityX = 0;
-			player->x = 100;
+			player->x = 1000;
 			player->y = 100;
 		}
 	}

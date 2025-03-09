@@ -15,6 +15,29 @@ namespace Tmpl8
 		planetSprite->SetFrame(this->frameCount);
 		planetSprite->Draw(screen, this->x - player->x + screen->GetWidthOffset() - planetSprite->GetWidthOffset(), this->y - player->y + screen->GetHeightOffset() - planetSprite->GetHeightOffset());
 		this->nextFrame();
+		this->nametag(screen, player);
+	}
+
+	void Planet::nametag(Surface* screen, Player* player)
+	{
+		int planetScreenX = this->x - player->x + screen->GetWidthOffset();
+		if (planetScreenX < 50) {
+			planetScreenX = 50;
+		}
+		else if (planetScreenX > screen->GetWidth() - 50) {
+			planetScreenX = screen->GetWidth() - 50;
+		}
+
+		int planetScreenY = this->y - player->y + screen->GetHeightOffset();
+		if (planetScreenY < 50) {
+			planetScreenY = 50;
+		}
+		else if (planetScreenY > screen->GetHeight() - 50)
+		{
+			planetScreenY = screen->GetHeight() - 50;
+		}
+
+		screen->Print(this->name, planetScreenX, planetScreenY, 0xFFFFFF);
 	}
 
 	void Planet::nextFrame()

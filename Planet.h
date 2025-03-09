@@ -5,6 +5,7 @@ namespace Tmpl8 {
 	class Planet
 	{
 	public:
+		char* name = "";
 		int x = 0;
 		int y = 0;
 
@@ -24,5 +25,6 @@ namespace Tmpl8 {
 		int frameDelayCount = 0;
 		Sprite* planetSprite = nullptr;
 		void nextFrame();
+		void nametag(Surface* screen, Player* player);
 	};
 }
