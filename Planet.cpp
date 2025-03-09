@@ -11,7 +11,7 @@ namespace Tmpl8
 		this->gravityRange = this->planetSize * 3;
 		this->gravityStrength = -0.3 * (this->planetSize / 100);
 		if (this->gravityStrength > -0.3) {
-			this->gravityStrength = -0.3;
+			this->gravityStrength = -0.1;
 		}
 	}
 
