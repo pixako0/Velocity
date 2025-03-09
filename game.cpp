@@ -4,10 +4,12 @@
 
 namespace Tmpl8
 {
+    Background background;
+
     Planet sun;
     Planet mercury;
     Planet venus;
-    Background background;
+    Planet earth;
 
     void Game::Init()
     {
@@ -15,6 +17,7 @@ namespace Tmpl8
         sun.asset = "assets/planets/sun.png";
         sun.planetSize = 515;
         sun.name = "Sun";
+        sun.dieOnCollide = true;
         sun.initialize();
 
         mercury = Planet();
@@ -33,8 +36,15 @@ namespace Tmpl8
         venus.planetSize = 165;
         venus.initialize();
 
-        player->x = 4420;
-        player->y = 2200;
+        earth = Planet();
+        earth.name = "Earth";
+        earth.asset = "assets/planets/earth.png";
+        earth.x = -6080;
+        earth.y = -1800;
+        earth.planetSize = 165;
+        earth.initialize();
+
+        player->initialize();
 
         background = Background();
     }
@@ -50,6 +60,7 @@ namespace Tmpl8
         player->applyGravity(&sun);
         player->applyGravity(&mercury);
         player->applyGravity(&venus);
+        player->applyGravity(&earth);
         player->move();
         ship->update(screen, player);
 
@@ -57,5 +68,6 @@ namespace Tmpl8
 		sun.update(screen, player);
 		mercury.update(screen, player);
         venus.update(screen, player);
+        earth.update(screen, player);
     }
 };

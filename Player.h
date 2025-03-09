@@ -7,9 +7,12 @@ namespace Tmpl8 {
 	class Player
 	{
 	public:
-		float x = 2000;
-		float y = 100;
+		float x = 0;
+		float y = 0;
 		float acceleration = 0.6;
+
+		float spawnX = -6080;
+		float spawnY = -2000;
 
 		int maxVelocity = 100;
 
@@ -25,6 +28,10 @@ namespace Tmpl8 {
 		void applyGravity(Planet* planet);
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
+
+		void initialize();
+	private:
+		void die();
 	};
 
 }

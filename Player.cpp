@@ -5,6 +5,12 @@
 
 namespace Tmpl8 {
 
+	void Player::initialize()
+	{
+		this->x = this->spawnX;
+		this->y = this->spawnY;
+	}
+
 	void Player::move()
 	{
 		// speed limiter
@@ -119,7 +125,10 @@ namespace Tmpl8 {
 		int gravityRangeSquared = planet->gravityRange * planet->gravityRange;
 
 		// collision with planet
-		if (distanceSquared < planetSizeSquared) {
+		if (distanceSquared < planetSizeSquared && planet->dieOnCollide) {
+			this->die();
+		}
+		else if (distanceSquared < planetSizeSquared) {
 			float distance = std::sqrt(distanceSquared);
 			float normX = xDistance / distance;
 			float normY = yDistance / distance;
@@ -137,5 +146,13 @@ namespace Tmpl8 {
 			this->velocityX += -0.5f * normX;
 			this->velocityY += -0.5f * normY;
 		}
+	}
+
+	void Player::die()
+	{
+		this->x = this->spawnX;
+		this->y = this->spawnY;
+		this->velocityX = 0;
+		this->velocityY = 0;
 	}
 }

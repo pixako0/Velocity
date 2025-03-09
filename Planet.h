@@ -6,6 +6,8 @@ namespace Tmpl8 {
 	{
 	public:
 		char* name = "";
+		bool dieOnCollide = false;
+
 		int x = 0;
 		int y = 0;
 
@@ -23,7 +25,9 @@ namespace Tmpl8 {
 	private:
 		int frameCount = 0;
 		int frameDelayCount = 0;
+
 		Sprite* planetSprite = nullptr;
+
 		void nextFrame();
 		void nametag(Surface* screen, Player* player);
 	};
