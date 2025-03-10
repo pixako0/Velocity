@@ -13,6 +13,7 @@ namespace Tmpl8
 		int xPos = screen->GetWidthOffset() - shipBase.GetWidthOffset();
 		int yPos = screen->GetHeightOffset() - shipBase.GetHeightOffset();
 
+		/// movement animation
 		if (player->moveRight || player->moveLeft || player->moveUp || player->moveDown)
 		{
 			shipEnginePowered.SetFrame(this->poweredFrameCount);
@@ -26,6 +27,8 @@ namespace Tmpl8
 				}
 			}
 		}
+
+		// idle animation
 		else {
 			shipEngineIdle.SetFrame(this->idleFrameCount);
 			shipEngineIdle.Draw(screen, xPos, yPos);

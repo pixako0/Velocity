@@ -115,38 +115,34 @@ namespace Tmpl8 {
 		}
 	}
 
-	void Player::applyGravity(Planet* planet)
-	{
-		int xDistance = this->x - planet->x;
-		int yDistance = this->y - planet->y;
+	//void Player::applyGravity(Planet* planet)
+	//{
+	//	int xDistance = this->x - planet->x;
+	//	int yDistance = this->y - planet->y;
 
-		int distanceSquared = xDistance * xDistance + yDistance * yDistance;
-		int planetSizeSquared = planet->planetSize * planet->planetSize;
-		int gravityRangeSquared = planet->gravityRange * planet->gravityRange;
+	//	int distanceSquared = xDistance * xDistance + yDistance * yDistance;
+	//	int planetSizeSquared = planet->planetSize * planet->planetSize;
+	//	int gravityRangeSquared = planet->gravityRange * planet->gravityRange;
 
-		// collision with planet
-		if (distanceSquared < planetSizeSquared && planet->dieOnCollide) {
-			this->die();
-		}
-		else if (distanceSquared < planetSizeSquared) {
-			float distance = std::sqrt(distanceSquared);
-			float normX = xDistance / distance;
-			float normY = yDistance / distance;
+	//	float distance = std::sqrt(distanceSquared);
+	//	float normX = xDistance / distance;
+	//	float normY = yDistance / distance;
 
-			this->velocityX = normX;
-			this->velocityY = normY;
-		}
+	//	// collision with planet
+	//	if (distanceSquared < planetSizeSquared && planet->dieOnCollide) {
+	//		this->die();
+	//	}
+	//	else if (distanceSquared <= planetSizeSquared) {
+	//		this->velocityX = normX;
+	//		this->velocityY = normY;
+	//	}
 
-		// within gravity range
-		else if (distanceSquared <= gravityRangeSquared) {
-			float distance = std::sqrt(distanceSquared);
-			float normX = xDistance / distance;
-			float normY = yDistance / distance;
-
-			this->velocityX += planet->gravityStrength * normX;
-			this->velocityY += planet->gravityStrength * normY;
-		}
-	}
+	//	// within gravity range
+	//	else if (distanceSquared <= gravityRangeSquared) {
+	//		this->velocityX += planet->gravityStrength * normX;
+	//		this->velocityY += planet->gravityStrength * normY;
+	//	}
+	//}
 
 	void Player::die()
 	{

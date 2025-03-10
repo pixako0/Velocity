@@ -42,15 +42,17 @@ namespace Tmpl8
         earth.asset = "assets/planets/earth.png";
         earth.x = -6080;
         earth.y = -1800;
+        //earth.velocityY = 50;
         earth.planetSize = 165;
         earth.initialize();
 
         moon = Planet();
         moon.name = "Moon";
         moon.asset = "assets/planets/moon.png";
-        moon.x = -5780;
-        moon.y = -2306;
+        moon.x = -6080;
+        moon.y = -1200;
         moon.planetSize = 65;
+        moon.velocityX = -20;
         moon.initialize();
 
         player->initialize();
@@ -66,11 +68,6 @@ namespace Tmpl8
         background.update(screen, player);
 
         // player
-        player->applyGravity(&sun);
-        player->applyGravity(&mercury);
-        player->applyGravity(&venus);
-        player->applyGravity(&earth);
-        player->applyGravity(&moon);
         player->move();
         ship->update(screen, player);
 
@@ -79,6 +76,11 @@ namespace Tmpl8
 		mercury.update(screen, player);
         venus.update(screen, player);
         earth.update(screen, player);
+
         moon.update(screen, player);
+        if (moon.moveDelayCount >= moon.moveDelay - 1) {
+            moon.applyGravity(screen, &earth);
+            //earth.applyGravity(screen, &sun);
+        }
     }
 };

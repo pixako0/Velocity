@@ -25,13 +25,12 @@ namespace Tmpl8 {
 		bool moveDown = false;
 
 		void move();
-		void applyGravity(Planet* planet);
+		void die();
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
 
 		void initialize();
 	private:
-		void die();
 	};
 
 }
