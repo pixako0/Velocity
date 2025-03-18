@@ -12,35 +12,23 @@ namespace Tmpl8
 	{
 		this->border(player);
 
-		int x = 0;
-		int y = 0;
+		int playerX = player->x / this->slowness;
+		int playerY = player->y / this->slowness;
 
-		int tileX = 0;
-		int tileY = 0;
-		int tileCount = 0;
+		int x = playerX / background.GetWidth() * background.GetWidth();
+		int y = playerY / background.GetHeight() * background.GetHeight();
 
 		for (int i = 0; i < 2000; i += background.GetWidth())
 		{
 			for (int j = 0; j < 1000; j += background.GetHeight())
 			{
-				x = (player->x / this->slowness) / background.GetWidth();
-				x *= background.GetWidth();
-				y = (player->y / this->slowness) / background.GetHeight();
-				y *= background.GetHeight();
+				int tileX = (x + i) / background.GetWidth();
+				int tileY = (y + j) / background.GetHeight();
+				int frame = tileX + tileY;
+				frame = std::abs(frame) % 3;
 
-				tileX = (x + i) / background.GetWidth();
-				tileY = (y + j) / background.GetHeight();
-				tileCount = tileX + tileY;
-				if (tileCount < 0) {
-					tileCount = -tileCount;
-				}
-
-				while (tileCount > 3) {
-					tileCount -= 3;
-				}
-
-				background.SetFrame(tileCount);
-				background.Draw(screen, x + i - player->x / this->slowness - screen->GetWidthOffset(), y + j - player->y / this->slowness - screen->GetHeightOffset());
+				background.SetFrame(frame);
+				background.Draw(screen, x + i - playerX - screen->GetWidthOffset(), y + j - playerY - screen->GetHeightOffset());
 			}
 		}
 	}
