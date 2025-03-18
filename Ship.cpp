@@ -16,6 +16,7 @@ namespace Tmpl8
 		/// movement animation
 		if (player->moveRight || player->moveLeft || player->moveUp || player->moveDown)
 		{
+
 			shipEnginePowered.SetFrame(this->poweredFrameCount);
 			shipEnginePowered.Draw(screen, xPos, yPos);
 			this->poweredFrameDelayCount++;
@@ -43,6 +44,9 @@ namespace Tmpl8
 		}
 
 		shipEngine.Draw(screen, xPos, yPos);
+
+		float angle = 45.0f;
+
 		shipBase.Draw(screen, xPos, yPos);
 	}
 }
