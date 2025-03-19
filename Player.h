@@ -30,6 +30,8 @@ namespace Tmpl8 {
 		void handleKeyDown(int key);
 
 		void initialize();
+
+		Ship ship;
 	private:
 	};
 

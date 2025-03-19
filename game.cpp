@@ -69,7 +69,7 @@ namespace Tmpl8
 
         // player
         player->move();
-        ship->update(screen, player);
+        player->ship.update(screen, player);
 
         // planets
 		sun.update(screen, player);

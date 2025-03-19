@@ -7,6 +7,7 @@ namespace Tmpl8 {
 	{
 	public:
 		void update(Surface* screen, Player* player);
+		int direction = 0;
 	private:
 		// idle animation
 		int idleFrameCount = 0;
@@ -19,6 +20,9 @@ namespace Tmpl8 {
 		int poweredFrame = 4;
 		int poweredFrameDelay = 5;
 		int poweredFrameDelayCount = 0;
+
+		int directionTimeout = 10;
+		int directionTimeoutCount = 0;
 	};
 }
 

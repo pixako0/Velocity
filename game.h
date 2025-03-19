@@ -16,7 +16,7 @@ public:
 	void SetTarget(Surface* surface) { 
 		screen = surface; 
 		player = new Player();
-		ship = new Ship(); 
+		player->ship = *new Ship(); 
 	}
 	void Init();
 	void Shutdown() {};

@@ -34,20 +34,86 @@ namespace Tmpl8 {
 		this->x += this->velocityX / 10;
 		this->y += this->velocityY / 10;
 
-		if (moveRight) {
-			this->velocityX += this->acceleration;
-		}
-		if (moveLeft) {
-			this->velocityX -= this->acceleration;
-		}
+		//if (moveRight) {
+		//	this->velocityX += this->acceleration;
+		//}
+		//if (moveLeft) {
+		//	this->velocityX -= this->acceleration;
+		//}
+		//if (moveUp) {
+		//	this->velocityY -= this->acceleration;
+		//}
+		//if (moveDown) {
+		//	this->velocityY += this->acceleration;
+		//}
+
+		// forwards
 		if (moveUp) {
-			this->velocityY -= this->acceleration;
-		}
-		if (moveDown) {
-			this->velocityY += this->acceleration;
+			switch (ship.direction) {
+			case 0:
+				this->velocityY -= this->acceleration;
+				break;
+			case 1:
+				this->velocityY -= this->acceleration / 2;
+				this->velocityX += this->acceleration / 2;
+				break;
+			case 2:
+				this->velocityX += this->acceleration;
+				break;
+			case 3:
+				this->velocityX += this->acceleration / 2;
+				this->velocityY += this->acceleration / 2;
+				break;
+			case 4:
+				this->velocityY += this->acceleration;
+				break;
+			case 5:
+				this->velocityY += this->acceleration / 2;
+				this->velocityX -= this->acceleration / 2;
+				break;
+			case 6:
+				this->velocityX -= this->acceleration;
+				break;
+			case 7:
+				this->velocityX -= this->acceleration / 2;
+				this->velocityY -= this->acceleration / 2;
+				break;
+			}
 		}
 
-		//printf("R:%d | L:%d | U:%d | D:%d\n", moveRight, moveLeft, moveUp, moveDown);
+		// backwards
+		//if (moveDown) {
+		//	switch (ship.direction) {
+		//	case 0:
+		//		this->velocityY += this->acceleration;
+		//		break;
+		//	case 1:
+		//		this->velocityY += this->acceleration / 2;
+		//		this->velocityX -= this->acceleration / 2;
+		//		break;
+		//	case 2:
+		//		this->velocityX -= this->acceleration;
+		//		break;
+		//	case 3:
+		//		this->velocityX -= this->acceleration / 2;
+		//		this->velocityY -= this->acceleration / 2;
+		//		break;
+		//	case 4:
+		//		this->velocityY -= this->acceleration;
+		//		break;
+		//	case 5:
+		//		this->velocityY -= this->acceleration / 2;
+		//		this->velocityX += this->acceleration / 2;
+		//		break;
+		//	case 6:
+		//		this->velocityX += this->acceleration;
+		//		break;
+		//	case 7:
+		//		this->velocityX += this->acceleration / 2;
+		//		this->velocityY += this->acceleration / 2;
+		//		break;
+		//	}
+		//}
 	}
 
 	void Player::handleKeyUp(int key)

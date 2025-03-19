@@ -13,11 +13,30 @@ namespace Tmpl8
 		int xPos = screen->GetWidthOffset() - shipBase.GetWidthOffset();
 		int yPos = screen->GetHeightOffset() - shipBase.GetHeightOffset();
 
+		if (this->directionTimeout > this->directionTimeoutCount) {
+			this->directionTimeoutCount++;
+		}
+		else {
+			this->directionTimeoutCount = 0;
+			if (player->moveRight) {
+				this->direction++;
+				if (this->direction >= 8) {
+					this->direction = 0;
+				}
+			}
+			if (player->moveLeft) {
+				this->direction--;
+				if (this->direction < 0) {
+					this->direction = 7;
+				}
+			}
+		}
+
 		/// movement animation
-		if (player->moveRight || player->moveLeft || player->moveUp || player->moveDown)
+		if (player->moveUp)
 		{
 
-			shipEnginePowered.SetFrame(this->poweredFrameCount*8);
+			shipEnginePowered.SetFrame(this->poweredFrameCount * 8 + this->direction);
 			shipEnginePowered.Draw(screen, xPos, yPos);
 			this->poweredFrameDelayCount++;
 			if (this->poweredFrameDelayCount >= this->poweredFrameDelay) {
@@ -31,7 +50,7 @@ namespace Tmpl8
 
 		// idle animation
 		else {
-			shipEngineIdle.SetFrame(this->idleFrameCount*8);
+			shipEngineIdle.SetFrame(this->idleFrameCount * 8 + this->direction);
 			shipEngineIdle.Draw(screen, xPos, yPos);
 			this->idleFrameDelayCount++;
 			if (this->idleFrameDelayCount >= this->idleFrameDelay) {
@@ -43,10 +62,10 @@ namespace Tmpl8
 			}
 		}
 
+		shipEngine.SetFrame(this->direction);
 		shipEngine.Draw(screen, xPos, yPos);
 
-		float angle = 45.0f;
-
+		shipBase.SetFrame(this->direction);
 		shipBase.Draw(screen, xPos, yPos);
 	}
 }
