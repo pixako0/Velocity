@@ -3,10 +3,10 @@
 
 namespace Tmpl8
 {
-	static Sprite shipBase(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/PNGs/Main Ship - Base - Full health.png"), 1);
-	static Sprite shipEngine(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/PNGs/Main Ship - Engines - Base Engine.png"), 1);
-	static Sprite shipEngineIdle(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Supercharged Engine - Idle.png"), 4);
-	static Sprite shipEnginePowered(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/PNGs/Main Ship - Engines - Supercharged Engine - Powering.png"), 4);
+	static Sprite shipBase(new Surface("assets/ship_tilemaps/spaceship.png"), 8);
+	static Sprite shipEngine(new Surface("assets/ship_tilemaps/engine.png"), 8);
+	static Sprite shipEngineIdle(new Surface("assets/ship_tilemaps/flames idle.png"), 32);
+	static Sprite shipEnginePowered(new Surface("assets/ship_tilemaps/flames supercharged.png"), 32);
 
 	void Ship::update(Surface* screen, Player* player)
 	{
@@ -17,7 +17,7 @@ namespace Tmpl8
 		if (player->moveRight || player->moveLeft || player->moveUp || player->moveDown)
 		{
 
-			shipEnginePowered.SetFrame(this->poweredFrameCount);
+			shipEnginePowered.SetFrame(this->poweredFrameCount*8);
 			shipEnginePowered.Draw(screen, xPos, yPos);
 			this->poweredFrameDelayCount++;
 			if (this->poweredFrameDelayCount >= this->poweredFrameDelay) {
@@ -31,7 +31,7 @@ namespace Tmpl8
 
 		// idle animation
 		else {
-			shipEngineIdle.SetFrame(this->idleFrameCount);
+			shipEngineIdle.SetFrame(this->idleFrameCount*8);
 			shipEngineIdle.Draw(screen, xPos, yPos);
 			this->idleFrameDelayCount++;
 			if (this->idleFrameDelayCount >= this->idleFrameDelay) {
