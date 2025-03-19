@@ -20,6 +20,7 @@ namespace Tmpl8
         sun.name = "Sun";
         sun.dieOnCollide = true;
         sun.initialize();
+        planets.push_front(sun);
 
         mercury = Planet();
         mercury.name = "Mercury";
@@ -28,6 +29,7 @@ namespace Tmpl8
         mercury.planetSize = 115;
         //mercury.asset = "assets/planets/mercury.png";
         mercury.initialize();
+        planets.push_front(sun);
 
         venus = Planet();
         venus.name = "Venus";
@@ -36,6 +38,7 @@ namespace Tmpl8
         venus.y = 2000;
         venus.planetSize = 165;
         venus.initialize();
+        planets.push_front(venus);
 
         earth = Planet();
         earth.name = "Earth";
@@ -45,6 +48,7 @@ namespace Tmpl8
         //earth.velocityY = 50;
         earth.planetSize = 165;
         earth.initialize();
+        planets.push_front(earth);
 
         moon = Planet();
         moon.name = "Moon";
@@ -54,6 +58,7 @@ namespace Tmpl8
         moon.planetSize = 65;
         moon.velocityX = -20;
         moon.initialize();
+        planets.push_front(moon);
 
         player->initialize();
 
@@ -72,12 +77,10 @@ namespace Tmpl8
         player->ship.update(screen, player);
 
         // planets
-		sun.update(screen, player);
-		mercury.update(screen, player);
-        venus.update(screen, player);
-        earth.update(screen, player);
+        for (Planet planet : planets) {
+            planet.update(screen, player);
+        }
 
-        moon.update(screen, player);
         if (moon.moveDelayCount >= moon.moveDelay - 1) {
             moon.applyGravity(screen, &earth);
             //earth.applyGravity(screen, &sun);

@@ -4,6 +4,7 @@
 #include "Planet.h"
 #include "Background.h"
 #include "Ship.h"
+#include <list>
 
 namespace Tmpl8 {
 
@@ -31,6 +32,7 @@ private:
 	Surface* screen;
 	Player* player;
 	Ship* ship;
+	std::list<Planet> planets;
 };
 
 }; // namespace Tmpl8
