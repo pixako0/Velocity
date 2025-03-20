@@ -7,10 +7,9 @@ namespace Tmpl8 {
 	class IShip
 	{
 	public:
-		void update(Surface* screen, IEntity* entity);
+		void update(Surface* screen, IEntity* entity, IEntity* player);
 		int direction = 0;
 
-	private:
 		// idle animation
 		int idleFrameCount = 0;
 		int idleFrame = 3;
@@ -26,5 +25,6 @@ namespace Tmpl8 {
 		// direction animation
 		int directionTimeout = 10;
 		int directionTimeoutCount = 0;
+	private:
 	};
 }

@@ -4,6 +4,7 @@
 #include "Planet.h"
 #include "Background.h"
 #include "Ship.h"
+#include "IEntity.h"
 #include <list>
 
 namespace Tmpl8 {
@@ -11,6 +12,7 @@ namespace Tmpl8 {
 class Surface;
 class Player;
 class Planet;
+class IEntity;
 class Game
 {
 public:
@@ -18,6 +20,8 @@ public:
 		screen = surface; 
 		player = new Player();
 		player->ship = *new Ship();
+		test = new IEntity();
+		test->ship = *new IShip();
 	}
 	void Init();
 	void Shutdown() {};
@@ -32,6 +36,7 @@ private:
 	Surface* screen;
 	Player* player;
 	Ship* ship;
+	IEntity* test;
 	std::list<Planet> planets;
 };
 

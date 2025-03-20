@@ -1,5 +1,6 @@
 #include "IShip.h"
 #include "IEntity.h"
+#include "Player.h"
 
 namespace Tmpl8
 {
@@ -8,10 +9,10 @@ namespace Tmpl8
 	static Sprite shipEngineIdle(new Surface("assets/ship_tilemaps/flames idle.png"), 32);
 	static Sprite shipEnginePowered(new Surface("assets/ship_tilemaps/flames supercharged.png"), 32);
 
-	void IShip::update(Surface* screen, IEntity* entity)
+	void IShip::update(Surface* screen, IEntity* entity, IEntity* player)
 	{
-		int xPos = screen->GetWidthOffset() - shipBase.GetWidthOffset();
-		int yPos = screen->GetHeightOffset() - shipBase.GetHeightOffset();
+		int xPos = screen->GetWidthOffset() - shipBase.GetWidthOffset() - (player->x - entity->x);
+		int yPos = screen->GetHeightOffset() - shipBase.GetHeightOffset() - (player->y - entity->y);
 
 		if (this->directionTimeout > this->directionTimeoutCount) {
 			this->directionTimeoutCount++;

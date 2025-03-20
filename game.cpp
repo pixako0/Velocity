@@ -61,6 +61,7 @@ namespace Tmpl8
         planets.push_front(moon);
 
         player->initialize();
+        test->initialize();
 
         background = Background();
     }
@@ -74,7 +75,8 @@ namespace Tmpl8
 
         // player
         player->move();
-        player->ship.update(screen, player);
+        player->ship.update(screen, player, player);
+        test->ship.update(screen, test, player);
 
         // planets
         for (Planet planet : planets) {
