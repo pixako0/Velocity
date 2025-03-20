@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Ship.h";
+#include "Ship.h"
 
 namespace Tmpl8 {
 	class Planet;
-	class Enemy
+	class IEntity
 	{
 	public:
 		float x = 0;
@@ -26,11 +26,10 @@ namespace Tmpl8 {
 
 		void move();
 		void die();
-		
+
 		void initialize();
 
 		Ship ship;
 	private:
 	};
 }
-

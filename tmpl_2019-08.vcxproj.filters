@@ -8,10 +8,21 @@
     <ClCompile Include="template.cpp">
       <Filter>template code</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Planet.cpp" />
-    <ClCompile Include="Ship.cpp" />
-    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Background.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Ship.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="IEntity.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -21,14 +32,34 @@
     <ClInclude Include="template.h">
       <Filter>template code</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Planet.h" />
-    <ClInclude Include="Ship.h" />
-    <ClInclude Include="Background.h" />
+    <ClInclude Include="Background.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship.h">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="IEntity.h">
+      <Filter>entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
       <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui">
+      <UniqueIdentifier>{d14b63b5-6438-4b14-9347-05b5dfa2fa0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="player">
+      <UniqueIdentifier>{699a1434-ba24-4f3f-8504-3df3347b22d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entity">
+      <UniqueIdentifier>{cb998a85-3878-43aa-9551-e547ccba6a4c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

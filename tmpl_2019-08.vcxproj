@@ -224,6 +224,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="IEntity.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Ship.cpp" />
@@ -233,6 +234,7 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="IEntity.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ship.h" />
