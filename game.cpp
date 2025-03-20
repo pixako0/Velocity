@@ -75,12 +75,15 @@ namespace Tmpl8
 
         // player
         player->move();
+        test->move();
+        test->moveUp = true;
         player->ship.update(screen, player, player);
         test->ship.update(screen, test, player);
 
         // planets
         for (Planet planet : planets) {
             planet.update(screen, player);
+            planet.applyGravityEntity(test);
         }
 
         if (moon.moveDelayCount >= moon.moveDelay - 1) {

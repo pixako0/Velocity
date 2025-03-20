@@ -1,6 +1,6 @@
 #include "Planet.h"
 #include "surface.h"
-#include "Player.h"
+#include "IEntity.h"
 #include <cstdio>
 #include <cmath>
 
@@ -16,13 +16,13 @@ namespace Tmpl8
 		}
 	}
 
-	void Planet::update(Surface* screen, Player* player)
+	void Planet::update(Surface* screen, IEntity* entity)
 	{
 		planetSprite->SetFrame(this->frameCount);
-		planetSprite->Draw(screen, this->x - player->x + screen->GetWidthOffset() - planetSprite->GetWidthOffset(), this->y - player->y + screen->GetHeightOffset() - planetSprite->GetHeightOffset());
+		planetSprite->Draw(screen, this->x - entity->x + screen->GetWidthOffset() - planetSprite->GetWidthOffset(), this->y - entity->y + screen->GetHeightOffset() - planetSprite->GetHeightOffset());
 		this->nextFrame();
-		this->nametag(screen, player);
-		this->applyGravityPlayer(player);
+		this->nametag(screen, entity);
+		this->applyGravityEntity(entity);
 		
 		this->moveDelayCount++;
 		if (this->moveDelayCount >= this->moveDelay) {
@@ -37,9 +37,9 @@ namespace Tmpl8
 		this->y += this->velocityY / 10;
 	}
 
-	void Planet::nametag(Surface* screen, Player* player)
+	void Planet::nametag(Surface* screen, IEntity* entity)
 	{
-		int planetScreenX = this->x - player->x + screen->GetWidthOffset();
+		int planetScreenX = this->x - entity->x + screen->GetWidthOffset();
 		if (planetScreenX < 50) {
 			planetScreenX = 50;
 		}
@@ -47,7 +47,7 @@ namespace Tmpl8
 			planetScreenX = screen->GetWidth() - 50;
 		}
 
-		int planetScreenY = this->y - player->y + screen->GetHeightOffset();
+		int planetScreenY = this->y - entity->y + screen->GetHeightOffset();
 		if (planetScreenY < 50) {
 			planetScreenY = 50;
 		}
@@ -98,10 +98,10 @@ namespace Tmpl8
 		}
 	}
 
-	void Planet::applyGravityPlayer(Player* player)
+	void Planet::applyGravityEntity(IEntity* entity)
 	{
-		int xDistance = player->x - this->x;
-		int yDistance = player->y - this->y;
+		int xDistance = entity->x - this->x;
+		int yDistance = entity->y - this->y;
 
 		int distanceSquared = xDistance * xDistance + yDistance * yDistance;
 		int planetSizeSquared = this->planetSize * this->planetSize;
@@ -113,17 +113,17 @@ namespace Tmpl8
 
 		// collision with planet
 		if (distanceSquared < planetSizeSquared && this->dieOnCollide) {
-			player->die();
+			entity->die();
 		}
 		else if (distanceSquared <= planetSizeSquared) {
-			player->velocityX = normX;
-			player->velocityY = normY;
+			entity->velocityX = normX;
+			entity->velocityY = normY;
 		}
 
 		// within gravity range
 		else if (distanceSquared <= gravityRangeSquared) {
-			player->velocityX += this->gravityStrength * normX;
-			player->velocityY += this->gravityStrength * normY;
+			entity->velocityX += this->gravityStrength * normX;
+			entity->velocityY += this->gravityStrength * normY;
 		}
 	}
 }

@@ -26,6 +26,9 @@
     <ClCompile Include="Ship.cpp">
       <Filter>entity</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
@@ -51,6 +54,9 @@
       <Filter>interfaces</Filter>
     </ClInclude>
     <ClInclude Include="Ship.h">
+      <Filter>entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
       <Filter>entity</Filter>
     </ClInclude>
   </ItemGroup>

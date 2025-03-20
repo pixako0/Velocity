@@ -1,5 +1,5 @@
 namespace Tmpl8 {
-	class Player;
+	class IEntity;
 	class Sprite;
 	class Surface;
 	class Planet
@@ -24,8 +24,9 @@ namespace Tmpl8 {
 		const char* asset = "assets/planets/default.png";
 
 		void initialize();
-		void update(Surface* screen, Player* player);
+		void update(Surface* screen, IEntity* entity);
 		void applyGravity(Surface* screen, Planet* planet);
+		void applyGravityEntity(IEntity* entity);
 
 		int moveDelay = 100;
 		int moveDelayCount = 0;
@@ -37,8 +38,7 @@ namespace Tmpl8 {
 		Sprite* planetSprite = nullptr;
 
 		void nextFrame();
-		void nametag(Surface* screen, Player* player);
-		void applyGravityPlayer(Player* player);
+		void nametag(Surface* screen, IEntity* entity);
 		void move();
 	};
 }
