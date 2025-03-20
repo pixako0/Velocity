@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Ship.h"
+#include "IShip.h"
 
 namespace Tmpl8 {
 	class Planet;
@@ -29,7 +29,7 @@ namespace Tmpl8 {
 
 		void initialize();
 
-		Ship ship;
+		IShip ship;
 	private:
 	};
 }
