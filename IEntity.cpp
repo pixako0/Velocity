@@ -10,20 +10,20 @@ namespace Tmpl8 {
 	void IEntity::move()
 	{
 		// speed limiter
-		if (this->velocityX > this->maxVelocity)
+		if (this->velocityX > this->GetMaxVelocity())
 		{
-			this->velocityX = this->maxVelocity;
+			this->velocityX = this->GetMaxVelocity();
 		}
-		else if (this->velocityX < -this->maxVelocity) {
-			this->velocityX = -this->maxVelocity;
+		else if (this->velocityX < -this->GetMaxVelocity()) {
+			this->velocityX = -this->GetMaxVelocity();
 		}
 
-		if (this->velocityY > this->maxVelocity)
+		if (this->velocityY > this->GetMaxVelocity())
 		{
-			this->velocityY = this->maxVelocity;
+			this->velocityY = this->GetMaxVelocity();
 		}
-		else if (this->velocityY < -this->maxVelocity) {
-			this->velocityY = -this->maxVelocity;
+		else if (this->velocityY < -this->GetMaxVelocity()) {
+			this->velocityY = -this->GetMaxVelocity();
 		}
 
 		// acceleration

@@ -8,6 +8,7 @@ namespace Tmpl8 {
 	class Player : public IEntity
 	{
 	public:
+		int GetMaxVelocity() const override { return 100; }
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
 	private:

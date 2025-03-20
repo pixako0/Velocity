@@ -7,6 +7,8 @@ namespace Tmpl8 {
 	class IEntity
 	{
 	public:
+		virtual ~IEntity() = default;
+
 		float x = 0;
 		float y = 0;
 		float acceleration = 0.6;
@@ -14,7 +16,7 @@ namespace Tmpl8 {
 		float spawnX = -6080;
 		float spawnY = -2000;
 
-		int maxVelocity = 100;
+		virtual int GetMaxVelocity() const = 0;
 
 		float velocityX = 0;
 		float velocityY = 0;
