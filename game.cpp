@@ -76,7 +76,7 @@ namespace Tmpl8
         // player
         player->move();
         test->move();
-        test->moveUp = true;
+        test->AIMove(player);
         player->ship.update(screen, player, player);
         test->ship.update(screen, test, player);
 

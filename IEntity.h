@@ -11,10 +11,10 @@ namespace Tmpl8 {
 
 		float x = 0;
 		float y = 0;
-		float acceleration = 0.6;
+		virtual float GetAcceleration() const = 0;
 
-		float spawnX = -6080;
-		float spawnY = -2000;
+		virtual float GetSpawnX() const = 0;
+		virtual float GetSpawnY() const = 0;
 
 		virtual int GetMaxVelocity() const = 0;
 

@@ -37,10 +37,7 @@ namespace Tmpl8
 	{
 		if (player->x >= 100000 || player->x <= -100000 || player->y >= 100000 || player->y <= -100000)
 		{
-			player->velocityY = 0;
-			player->velocityX = 0;
-			player->x = player->spawnX;
-			player->y = player->spawnY;
+			player->die();
 		}
 	}
 }

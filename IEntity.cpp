@@ -3,8 +3,8 @@
 namespace Tmpl8 {
 	void IEntity::initialize()
 	{
-		this->x = this->spawnX;
-		this->y = this->spawnY;
+		this->x = this->GetSpawnX();
+		this->y = this->GetSpawnY();
 	}
 
 	void IEntity::move()
@@ -34,32 +34,32 @@ namespace Tmpl8 {
 		if (moveUp) {
 			switch (ship.direction) {
 			case 0:
-				this->velocityY -= this->acceleration;
+				this->velocityY -= this->GetAcceleration();
 				break;
 			case 1:
-				this->velocityY -= this->acceleration / 2;
-				this->velocityX += this->acceleration / 2;
+				this->velocityY -= this->GetAcceleration() / 2;
+				this->velocityX += this->GetAcceleration() / 2;
 				break;
 			case 2:
-				this->velocityX += this->acceleration;
+				this->velocityX += this->GetAcceleration();
 				break;
 			case 3:
-				this->velocityX += this->acceleration / 2;
-				this->velocityY += this->acceleration / 2;
+				this->velocityX += this->GetAcceleration() / 2;
+				this->velocityY += this->GetAcceleration() / 2;
 				break;
 			case 4:
-				this->velocityY += this->acceleration;
+				this->velocityY += this->GetAcceleration();
 				break;
 			case 5:
-				this->velocityY += this->acceleration / 2;
-				this->velocityX -= this->acceleration / 2;
+				this->velocityY += this->GetAcceleration() / 2;
+				this->velocityX -= this->GetAcceleration() / 2;
 				break;
 			case 6:
-				this->velocityX -= this->acceleration;
+				this->velocityX -= this->GetAcceleration();
 				break;
 			case 7:
-				this->velocityX -= this->acceleration / 2;
-				this->velocityY -= this->acceleration / 2;
+				this->velocityX -= this->GetAcceleration() / 2;
+				this->velocityY -= this->GetAcceleration() / 2;
 				break;
 			}
 		}
@@ -67,8 +67,8 @@ namespace Tmpl8 {
 
 	void IEntity::die()
 	{
-		this->x = this->spawnX;
-		this->y = this->spawnY;
+		this->x = this->GetSpawnX();
+		this->y = this->GetSpawnY();
 		this->velocityX = 0;
 		this->velocityY = 0;
 	}

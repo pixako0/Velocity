@@ -9,6 +9,11 @@ namespace Tmpl8 {
 	{
 	public:
 		int GetMaxVelocity() const override { return 100; }
+		float GetAcceleration() const override { return 0.6f; }
+
+		float GetSpawnX() const override { return -6080; }
+		float GetSpawnY() const override { return -2000; }
+
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
 	private:
