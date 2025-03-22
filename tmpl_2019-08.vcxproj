@@ -229,6 +229,8 @@
     <ClCompile Include="IShip.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RocketRender.cpp" />
+    <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
@@ -241,6 +243,8 @@
     <ClInclude Include="IShip.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RocketRender.h" />
+    <ClInclude Include="Rocket.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <cstdio>
+#include <algorithm>
 #include <cmath>
 #include "Planet.h"
 
@@ -32,6 +33,9 @@ namespace Tmpl8 {
 			break;
 		case 80:
 			this->moveLeft = false;
+			break;
+		case 44:
+			this->launchRocket();
 			break;
 		}
 	}
@@ -67,5 +71,38 @@ namespace Tmpl8 {
 			this->moveLeft = true;
 			break;
 		}
+	}
+
+	void Player::launchRocket()
+	{
+		Rocket rocket = Rocket();
+		rocket.spawnX = this->x;
+		rocket.spawnY = this->y;
+		rocket.moveUp = true;
+		rocket.initialize(this->ship.direction);
+
+		rockets.push_back(rocket);
+	}
+
+	void Player::updateRockets(Surface* screen)
+	{
+		// end rocket
+		this->rockets.erase(
+			std::remove_if(this->rockets.begin(), this->rockets.end(),
+				[](const Rocket& rocket) { return rocket.age > 500; }),
+			this->rockets.end());
+
+		// update rocket
+		for (Rocket& rocket : this->rockets) {
+			rocket.age++;
+			rocket.move();
+			rocket.ship.update(screen, &rocket, this);
+		}
+	}
+
+	void Player::update(Surface* screen)
+	{
+		this->move();
+		this->updateRockets(screen);
 	}
 }

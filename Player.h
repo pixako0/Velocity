@@ -2,6 +2,8 @@
 
 #include "Ship.h"
 #include "IEntity.h"
+#include <list>
+#include "Rocket.h"
 
 namespace Tmpl8 {
 	class Planet;
@@ -16,6 +18,13 @@ namespace Tmpl8 {
 
 		void handleKeyUp(int key);
 		void handleKeyDown(int key);
+
+		void launchRocket();
+		void updateRockets(Surface* screen);
+
+		void update(Surface* screen);
+
+		std::list<Rocket> rockets;
 	private:
 	};
 

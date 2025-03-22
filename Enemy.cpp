@@ -11,7 +11,7 @@ namespace Tmpl8
         int distanceSquared = xDistance * xDistance + yDistance * yDistance;
         int targetRangeSquared = this->targetRange * this->targetRange;
 
-        printf("%dkm\n", distanceSquared / 10000);
+        //printf("%dkm\n", distanceSquared / 10000);
 
         if (distanceSquared > targetRangeSquared) { // return to spawn
             this->MoveToSpawn();

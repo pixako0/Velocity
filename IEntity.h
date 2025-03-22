@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IShip.h"
+#include <list>
 
 namespace Tmpl8 {
 	class Planet;
@@ -26,12 +27,12 @@ namespace Tmpl8 {
 		bool moveUp = false;
 		bool moveDown = false;
 
+		void update(Surface* screen);
 		void move();
 		void die();
 
 		void initialize();
 
 		IShip ship;
-	private:
 	};
 }

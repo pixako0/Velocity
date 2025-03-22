@@ -74,8 +74,8 @@ namespace Tmpl8
         background.update(screen, player);
 
         // player
-        player->move();
-        test->move();
+        player->update(screen);
+        test->update(screen);
         test->AIMove(player);
         player->ship.update(screen, player, player);
         test->ship.update(screen, test, player);

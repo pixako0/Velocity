@@ -1,10 +1,16 @@
 #include "IEntity.h"
+#include "Rocket.h"
 
 namespace Tmpl8 {
 	void IEntity::initialize()
 	{
 		this->x = this->GetSpawnX();
 		this->y = this->GetSpawnY();
+	}
+
+	void IEntity::update(Surface* screen)
+	{
+		this->move();
 	}
 
 	void IEntity::move()
@@ -29,6 +35,7 @@ namespace Tmpl8 {
 		// acceleration
 		this->x += this->velocityX / 10;
 		this->y += this->velocityY / 10;
+
 
 		// forwards
 		if (moveUp) {
