@@ -4,7 +4,7 @@
 
 namespace Tmpl8 
 {
-	static Sprite rocket(new Surface("assets/Foozle_2DS0011_Void_MainShip/Main ship weapons/PNGs/Main ship weapon - Projectile - Rocket.png"), 3);
+	static Sprite rocket(new Surface("assets/ship_tilemaps/rockets.png"), 24);
 
 	void RocketRender::update(Surface* screen, IEntity* entity, IEntity* player)
 	{

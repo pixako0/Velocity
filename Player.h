@@ -10,6 +10,7 @@ namespace Tmpl8 {
 	class Player : public IEntity
 	{
 	public:
+		Player() {}
 		int GetMaxVelocity() const override { return 100; }
 		float GetAcceleration() const override { return 0.6f; }
 

@@ -5,6 +5,7 @@ namespace Tmpl8 {
 	class Enemy : public IEntity
 	{
 	public:
+		Enemy() {}
 		int GetMaxVelocity() const override { return 30; }
 		float GetAcceleration() const override { return 0.6f; }
 

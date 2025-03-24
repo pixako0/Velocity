@@ -75,11 +75,9 @@ namespace Tmpl8 {
 
 	void Player::launchRocket()
 	{
-		Rocket rocket = Rocket();
-		rocket.spawnX = this->x;
-		rocket.spawnY = this->y;
+		Rocket rocket = Rocket(this->x, this->y, this->ship.direction);
 		rocket.moveUp = true;
-		rocket.initialize(this->ship.direction);
+		rocket.initialize();
 
 		rockets.push_back(rocket);
 	}

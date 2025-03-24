@@ -8,6 +8,7 @@ namespace Tmpl8 {
 	class IEntity
 	{
 	public:
+		IEntity(int direction = 0) : ship(direction) {}
 		virtual ~IEntity() = default;
 
 		float x = 0;

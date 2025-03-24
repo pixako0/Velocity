@@ -21,7 +21,7 @@ public:
 		player = new Player();
 		player->ship = *new Ship();
 		test = new Enemy();
-		test->ship = *new IShip();
+		test->ship = *new IShip(0);
 	}
 	void Init();
 	void Shutdown() {};

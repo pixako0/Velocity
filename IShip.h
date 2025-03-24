@@ -1,12 +1,17 @@
 #pragma once
 
 #include "surface.h"
+#include <cstdio>
 
 namespace Tmpl8 {
 	class IEntity;
 	class IShip
 	{
 	public:
+		IShip(int direction = 0) {
+			this->direction = direction;
+			printf("Ship: %d\n", this->direction);
+		}
 		void update(Surface* screen, IEntity* entity, IEntity* player);
 		int direction = 0;
 
