@@ -23,6 +23,8 @@ namespace Tmpl8 {
 		void launchRocket();
 		void updateRockets(Surface* screen);
 
+		bool interactEntityRocket(IEntity* entity);
+
 		void update(Surface* screen);
 
 		std::list<Rocket> rockets;

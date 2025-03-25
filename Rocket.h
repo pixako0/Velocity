@@ -23,6 +23,8 @@ namespace Tmpl8 {
 		float GetSpawnX() const override { return spawnX; }
 		float GetSpawnY() const override { return spawnY; }
 
+		bool checkCollision(IEntity* entity, int colissionRange);
+
 		void die();
 		void initialize();
 

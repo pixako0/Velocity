@@ -98,6 +98,27 @@ namespace Tmpl8 {
 		}
 	}
 
+	bool Player::interactEntityRocket(IEntity* entity)
+	{
+		int radius = 12;
+		bool collided = false;
+		this->rockets.erase(
+			std::remove_if(this->rockets.begin(), this->rockets.end(),
+				[&collided, entity, radius](Rocket& rocket) {
+					if (rocket.checkCollision(entity, radius)) {
+						printf("Rocket collided\n");
+						collided = true;
+						return true;
+					}
+					return false;
+				}),
+			this->rockets.end());
+
+		return collided;
+	}
+
+
+
 	void Player::update(Surface* screen)
 	{
 		this->move();

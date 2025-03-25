@@ -79,6 +79,9 @@ namespace Tmpl8
         test->AIMove(player);
         player->ship.update(screen, player, player);
         test->ship.update(screen, test, player);
+        if (player->interactEntityRocket(test)) {
+            test->die();
+        }
 
         // planets
         for (Planet planet : planets) {
