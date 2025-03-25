@@ -11,5 +11,11 @@ namespace Tmpl8 {
 	public:
 		RocketRender(int direction = 0) : IShip(direction) { printf("Render: %d\n", this->direction); }
 		void update(Surface* screen, IEntity* entity, IEntity* player);
+
+	private:
+		int rocketFrameCount = 0;
+		int rocketFrame = 3;
+		int rocketFrameDelay = 5;
+		int rocketFrameDelayCount = 0;
 	};
 }

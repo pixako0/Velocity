@@ -7,15 +7,14 @@ namespace Tmpl8 {
 	class Rocket : public IEntity
 	{
 	public:
-		Rocket(float spawnX, float spawnY, int direction) : IEntity(direction)
+		Rocket(float spawnX, float spawnY, int direction) : IEntity(direction), ship(direction)
 		{
 			this->spawnX = spawnX;
 			this->spawnY = spawnY;
-			//this->ship = RocketRender(direction);
 		}
 
-		int GetMaxVelocity() const override { return 150; }
-		float GetAcceleration() const override { return 0.6f; }
+		int GetMaxVelocity() const override { return 100; }
+		float GetAcceleration() const override { return 10.0f; }
 
 		float spawnX = 0;
 		float spawnY = 0;
