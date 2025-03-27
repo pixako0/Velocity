@@ -1,5 +1,7 @@
 #include "Enemy.h"
 #include <cstdio>
+#include "Rocket.h"
+#include "Player.h"
 
 namespace Tmpl8
 {
@@ -16,6 +18,12 @@ namespace Tmpl8
         if (distanceSquared > targetRangeSquared) { // return to spawn
             this->MoveToSpawn();
             return;
+        }
+
+        rocketLaunchCooldownCount++;
+        if (distanceSquared < 30000 && rocketLaunchCooldown < rocketLaunchCooldownCount) {
+            rocketLaunchCooldownCount = 0;
+            this->launchRocket();
         }
 
         if (xDistance > 0 && yDistance > 0) {
@@ -115,4 +123,53 @@ namespace Tmpl8
         }
     }
 
+    void Enemy::launchRocket()
+    {
+        Rocket rocket = Rocket(this->x, this->y, this->ship.direction);
+        rocket.moveUp = true;
+        rocket.initialize();
+
+        rockets.push_back(rocket);
+    }
+
+    void Enemy::updateRockets(Surface* screen, IEntity* player)
+    {
+        // end rocket
+        this->rockets.erase(
+            std::remove_if(this->rockets.begin(), this->rockets.end(),
+                [](const Rocket& rocket) { return rocket.age > 500; }),
+            this->rockets.end());
+
+        // update rocket
+        for (Rocket& rocket : this->rockets) {
+            rocket.age++;
+            rocket.move();
+            rocket.ship.update(screen, &rocket, player);
+        }
+    }
+
+    bool Enemy::interactEntityRocket(IEntity* entity)
+    {
+        int radius = 12;
+        bool colliding = false;
+        this->rockets.erase(
+            std::remove_if(this->rockets.begin(), this->rockets.end(),
+                [&colliding, entity, radius](Rocket& rocket) {
+                    if (rocket.checkCollision(entity, radius)) {
+                        printf("Rocket colliding\n");
+                        colliding = true;
+                        return true;
+                    }
+                    return false;
+                }),
+            this->rockets.end());
+
+        return colliding;
+    }
+
+    void Enemy::update(Surface* screen, IEntity* player)
+    {
+        this->updateRockets(screen, player);
+        this->move();
+    }
 }

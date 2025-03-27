@@ -101,20 +101,20 @@ namespace Tmpl8 {
 	bool Player::interactEntityRocket(IEntity* entity)
 	{
 		int radius = 12;
-		bool collided = false;
+		bool colliding = false;
 		this->rockets.erase(
 			std::remove_if(this->rockets.begin(), this->rockets.end(),
-				[&collided, entity, radius](Rocket& rocket) {
+				[&colliding, entity, radius](Rocket& rocket) {
 					if (rocket.checkCollision(entity, radius)) {
-						printf("Rocket collided\n");
-						collided = true;
+						printf("Rocket colliding\n");
+						colliding = true;
 						return true;
 					}
 					return false;
 				}),
 			this->rockets.end());
 
-		return collided;
+		return colliding;
 	}
 
 
