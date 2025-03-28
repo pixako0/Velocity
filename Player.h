@@ -25,9 +25,13 @@ namespace Tmpl8 {
 		bool interactEntityRocket(IEntity* entity);
 
 		void update(Surface* screen);
+		void die();
 
 		std::list<Rocket> rockets;
+		int score = 0;
 	private:
+		void updateScore();
+		void renderScore(Surface* screen);
 	};
 
 }

@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <cmath>
 #include "Planet.h"
+#include <iostream>
+#include <cstring>
+#include <string>
 
 namespace Tmpl8 {
 	void Player::handleKeyUp(int key)
@@ -102,6 +105,7 @@ namespace Tmpl8 {
 	{
 		int radius = 12;
 		bool colliding = false;
+
 		this->rockets.erase(
 			std::remove_if(this->rockets.begin(), this->rockets.end(),
 				[&colliding, entity, radius](Rocket& rocket) {
@@ -114,6 +118,10 @@ namespace Tmpl8 {
 				}),
 			this->rockets.end());
 
+		if (colliding) {
+			this->updateScore();
+		}
+
 		return colliding;
 	}
 
@@ -123,5 +131,32 @@ namespace Tmpl8 {
 	{
 		this->move();
 		this->updateRockets(screen);
+		this->renderScore(screen);
+	}
+
+	void Player::renderScore(Surface* screen)
+	{
+		const char* text = "Score: ";
+		char buffer[50];
+
+		strcpy(buffer, text);
+		strcat(buffer, std::to_string(this->score).c_str());
+
+		screen->Print(buffer, 0, 0, 0xFFFFFF);
+	}
+
+	void Player::updateScore()
+	{
+		this->score++;
+	}
+
+	void Player::die()
+	{
+		this->x = this->GetSpawnX();
+		this->y = this->GetSpawnY();
+		this->velocityX = 0;
+		this->velocityY = 0;
+
+		this->score = 0;
 	}
 }
