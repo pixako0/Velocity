@@ -9,7 +9,7 @@ namespace Tmpl8 {
 	class RocketRender : public IShip
 	{
 	public:
-		RocketRender(int direction = 0) : IShip(direction) { printf("Render: %d\n", this->direction); }
+		RocketRender(int direction = 0) : IShip(direction) { }
 		void update(Surface* screen, IEntity* entity, IEntity* player);
 
 	private:

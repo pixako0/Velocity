@@ -20,8 +20,6 @@ public:
 		screen = surface; 
 		player = new Player();
 		player->ship = *new Ship();
-		test = new Enemy();
-		test->ship = *new IShip(0);
 	}
 	void Init();
 	void Shutdown() {};
@@ -32,12 +30,15 @@ public:
 	void KeyUp(int key) { player->handleKeyUp(key); };
 	void KeyDown(int key) { player->handleKeyDown(key); };
 
+	void CreateEnemies(int count);
+
 private:
 	Surface* screen;
 	Player* player;
 	Ship* ship;
 	Enemy* test;
 	std::list<Planet> planets;
+	std::list<Enemy*> enemies;
 };
 
 }; // namespace Tmpl8

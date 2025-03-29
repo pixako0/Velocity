@@ -10,6 +10,7 @@ namespace Tmpl8 {
 		Enemy() {}
 		int GetMaxVelocity() const override { return 30; }
 		float GetAcceleration() const override { return 0.6f; }
+		void initialize();
 
 		float GetSpawnX() const override { return -6080; }
 		float GetSpawnY() const override { return -2000; }
@@ -19,7 +20,7 @@ namespace Tmpl8 {
 		void launchRocket();
 		void updateRockets(Surface* screen, IEntity* player);
 		bool interactEntityRocket(IEntity* entity);
-
+		
 		void update(Surface* screen, IEntity* player);
 
 		std::list<Rocket> rockets;

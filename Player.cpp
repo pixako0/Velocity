@@ -137,12 +137,14 @@ namespace Tmpl8 {
 	void Player::renderScore(Surface* screen)
 	{
 		const char* text = "Score: ";
-		char buffer[50];
-
-		strcpy(buffer, text);
-		strcat(buffer, std::to_string(this->score).c_str());
-
-		screen->Print(buffer, 0, 0, 0xFFFFFF);
+		char scoreBuffer[50];
+		strcpy(scoreBuffer, text);
+		strcat(scoreBuffer, std::to_string(this->score).c_str());
+		screen->Print(scoreBuffer, 25, 10, 0xFFFFFF);
+		
+		char coordBuffer[50];
+		std::sprintf(coordBuffer, "X: %d Y: %d", static_cast<int>(this->x), static_cast<int>(this->y));
+		screen->Print(coordBuffer, 100, 10, 0xFFFFFF);
 	}
 
 	void Player::updateScore()

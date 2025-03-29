@@ -1,5 +1,7 @@
 #include "IEntity.h"
 #include "Rocket.h"
+#include <cstdlib>
+#include <ctime>
 
 namespace Tmpl8 {
 	void IEntity::initialize()
@@ -74,9 +76,7 @@ namespace Tmpl8 {
 
 	void IEntity::die()
 	{
-		this->x = this->GetSpawnX();
-		this->y = this->GetSpawnY();
-		this->velocityX = 0;
-		this->velocityY = 0;
+		this->x = (std::rand() % 20001) - 10000;
+		this->y = (std::rand() % 20001) - 10000;
 	}
 }

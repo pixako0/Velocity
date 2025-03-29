@@ -10,7 +10,7 @@ namespace Tmpl8 {
 	public:
 		IShip(int direction = 0) {
 			this->direction = direction;
-			printf("Ship: %d\n", this->direction);
+			//printf("Ship: %d\n", this->direction);
 		}
 		void update(Surface* screen, IEntity* entity, IEntity* player);
 		int direction = 0;

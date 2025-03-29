@@ -12,6 +12,16 @@ namespace Tmpl8
     Planet earth;
     Planet moon;
 
+    void Game::CreateEnemies(int count)
+    {
+        for (int i = 0; i < count; i++) {
+            Enemy* enemy = new Enemy();
+            enemy->initialize();
+            enemy->ship = IShip(0);
+            enemies.push_front(enemy);
+        }
+    }
+
     void Game::Init()
     {
         sun = Planet();
@@ -29,7 +39,7 @@ namespace Tmpl8
         mercury.planetSize = 115;
         //mercury.asset = "assets/planets/mercury.png";
         mercury.initialize();
-        planets.push_front(sun);
+        planets.push_front(mercury);
 
         venus = Planet();
         venus.name = "Venus";
@@ -61,7 +71,8 @@ namespace Tmpl8
         planets.push_front(moon);
 
         player->initialize();
-        test->initialize();
+
+        this->CreateEnemies(10);
 
         background = Background();
     }
@@ -73,28 +84,38 @@ namespace Tmpl8
         // background
         background.update(screen, player);
 
-        // player
-        player->update(screen);
-        test->update(screen, player);
-        test->AIMove(player);
-        player->ship.update(screen, player, player);
-        test->ship.update(screen, test, player);
-        if (player->interactEntityRocket(test)) {
-            test->die();
-        }
-        if (test->interactEntityRocket(player)) {
-            player->die();
-        }
-
         // planets
         for (Planet planet : planets) {
             planet.update(screen, player);
-            planet.applyGravityEntity(test);
+            for (Enemy* enemy : enemies) {
+                planet.applyGravityEntity(enemy);
+            }
         }
 
         if (moon.moveDelayCount >= moon.moveDelay - 1) {
             moon.applyGravity(screen, &earth);
             //earth.applyGravity(screen, &sun);
         }
+
+        // player
+        player->update(screen);
+
+        // enemies
+        for (Enemy* enemy : enemies) {
+            enemy->update(screen, player);
+            enemy->AIMove(player);
+            enemy->ship.update(screen, enemy, player);
+
+            if (enemy->interactEntityRocket(player)) {
+                player->die();
+            }
+
+            if (player->interactEntityRocket(enemy)) {
+                enemy->die();
+                this->CreateEnemies(1);
+            }
+        }
+
+        player->ship.update(screen, player, player);
     }
 };

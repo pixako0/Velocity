@@ -15,10 +15,11 @@ namespace Tmpl8
 
         //printf("%dkm\n", distanceSquared / 10000);
 
-        if (distanceSquared > targetRangeSquared) { // return to spawn
-            this->MoveToSpawn();
-            return;
-        }
+        // uncomment to give enemies a targetting distance
+        //if (distanceSquared > targetRangeSquared) { // return to spawn
+        //    this->MoveToSpawn();
+        //    return;
+        //}
 
         rocketLaunchCooldownCount++;
         if (distanceSquared < 30000 && rocketLaunchCooldown < rocketLaunchCooldownCount) {
@@ -69,6 +70,11 @@ namespace Tmpl8
             this->moveRight = false;
             this->moveLeft = true;
         }
+    }
+
+    void Enemy::initialize()
+    {
+        this->die();
     }
 
     void Enemy::MoveToSpawn()
