@@ -152,13 +152,11 @@ namespace Tmpl8 {
 		this->score++;
 	}
 
-	void Player::die()
-	{
-		this->x = this->GetSpawnX();
-		this->y = this->GetSpawnY();
+    void Player::die()
+    {
+        IEntity::die();
+        this->score = 0;
 		this->velocityX = 0;
 		this->velocityY = 0;
-
-		this->score = 0;
-	}
+    }
 }

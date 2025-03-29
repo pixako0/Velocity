@@ -8,7 +8,7 @@ namespace Tmpl8 {
 	{
 	public:
 		Enemy() {}
-		int GetMaxVelocity() const override { return 30; }
+		int GetMaxVelocity() const override { return 50; }
 		float GetAcceleration() const override { return 0.6f; }
 		void initialize();
 
