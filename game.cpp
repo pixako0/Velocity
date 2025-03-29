@@ -1,6 +1,7 @@
 #include "game.h"
 #include "surface.h"
 #include <cstdio> //printf
+#include <string>
 
 namespace Tmpl8
 {
@@ -77,8 +78,20 @@ namespace Tmpl8
         background = Background();
     }
 
+    void Game::showScore()
+    {
+		screen->Centre(const_cast<char*>("You died"), screen->GetHeightOffset() - 50, 0xffffff);
+		screen->Centre(const_cast<char*>("Press enter to restart"), screen->GetHeightOffset() - 25, 0xffffff);
+        screen->Centre(const_cast<char*>(("Final score: " + std::to_string(player->lastScore)).c_str()), screen->GetHeightOffset(), 0xffffff);
+    }
+
     void Game::Tick(float deltaTime)
     {
+		if (player->gameOver) {
+			showScore();
+			return;
+		}
+
         screen->Clear(0);
 
         // background
@@ -107,7 +120,15 @@ namespace Tmpl8
             enemy->ship.update(screen, enemy, player);
 
             if (enemy->interactEntityRocket(player)) {
+                player->gameOver = true;
+				player->lastScore = player->score;
+				for (Enemy* enemy : enemies) {
+					delete enemy;
+				}
+				enemies.clear();
+				this->CreateEnemies(10);
                 player->die();
+                return;
             }
 
             if (player->interactEntityRocket(enemy)) {

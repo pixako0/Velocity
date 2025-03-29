@@ -45,7 +45,6 @@ namespace Tmpl8 {
 
 	void Player::handleKeyDown(int key)
 	{
-		//printf("%d\n", key);
 		switch (key)
 		{
 		case 7:
@@ -72,6 +71,9 @@ namespace Tmpl8 {
 			break;
 		case 80:
 			this->moveLeft = true;
+			break;
+		case 40:
+			this->gameOver = false;
 			break;
 		}
 	}
@@ -156,7 +158,5 @@ namespace Tmpl8 {
     {
         IEntity::die();
         this->score = 0;
-		this->velocityX = 0;
-		this->velocityY = 0;
     }
 }

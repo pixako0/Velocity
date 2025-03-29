@@ -29,6 +29,7 @@ public:
 	void MouseMove( int x, int y ) { /* implement if you want to detect mouse movement */ }
 	void KeyUp(int key) { player->handleKeyUp(key); };
 	void KeyDown(int key) { player->handleKeyDown(key); };
+	void showScore();
 
 	void CreateEnemies(int count);
 

@@ -29,6 +29,8 @@ namespace Tmpl8 {
 
 		std::list<Rocket> rockets;
 		int score = 0;
+		int lastScore = 0;
+		bool gameOver = false;
 	private:
 		void updateScore();
 		void renderScore(Surface* screen);

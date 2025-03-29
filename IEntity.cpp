@@ -78,5 +78,7 @@ namespace Tmpl8 {
 	{
 		this->x = (std::rand() % 20001) - 10000;
 		this->y = (std::rand() % 20001) - 10000;
+		this->velocityX = 0;
+		this->velocityY = 0;
 	}
 }
