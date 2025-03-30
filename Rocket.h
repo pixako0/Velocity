@@ -7,7 +7,7 @@ namespace Tmpl8 {
 	class Rocket : public IEntity
 	{
 	public:
-		Rocket(float spawnX, float spawnY, int direction) : IEntity(direction), ship(direction)
+		Rocket(float spawnX, float spawnY, int direction, float velocityX, float velocityY) : IEntity(direction, velocityX, velocityY), ship(direction)
 		{
 			this->spawnX = spawnX;
 			this->spawnY = spawnY;

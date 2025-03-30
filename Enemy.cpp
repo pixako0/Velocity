@@ -131,7 +131,7 @@ namespace Tmpl8
 
     void Enemy::launchRocket()
     {
-        Rocket rocket = Rocket(this->x, this->y, this->ship.direction);
+        Rocket rocket = Rocket(this->x, this->y, this->ship.direction, this->velocityX, this->velocityY);
         rocket.moveUp = true;
         rocket.initialize();
 

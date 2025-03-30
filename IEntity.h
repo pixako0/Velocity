@@ -8,7 +8,11 @@ namespace Tmpl8 {
 	class IEntity
 	{
 	public:
-		IEntity(int direction = 0) : ship(direction) {}
+		IEntity(int direction = 0, float velocityX = 0.0f, float velocityY = 0.0f) : ship(direction) {
+			this->velocityX = velocityX;
+			this->velocityY = velocityY;
+		}
+
 		virtual ~IEntity() = default;
 
 		float x = 0;
