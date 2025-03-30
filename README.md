@@ -1,6 +1,7 @@
 # Velocity
 My intake assignment for BUas. The theme was 'collide'.
 ## Installation
+git clone https://github.com/pixako0/Velocity.git
 
 ## Controls
 - `W`: Accelerate your ship
