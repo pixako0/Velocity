@@ -112,7 +112,6 @@ namespace Tmpl8 {
 			std::remove_if(this->rockets.begin(), this->rockets.end(),
 				[&colliding, entity, radius](Rocket& rocket) {
 					if (rocket.checkCollision(entity, radius)) {
-						printf("Rocket colliding\n");
 						colliding = true;
 						return true;
 					}
